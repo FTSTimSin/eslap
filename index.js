@@ -5,11 +5,11 @@ $(() => {
 
   const generateBtn = $('#generate');
   const frequencySlider = $('#frequency-slider');
-  const straightnessSlider = $('#straightness-slider');
+  const diagonalSlider = $('#diagonal-slider');
 
   generateBtn.on('click', () => {
     const freq = frequencySlider.val();
-    const straightPercent = straightnessSlider.val();
+    const straightPercent = diagonalSlider.val();
 
     const nonStraightFreq = freq * (straightPercent / 100);
     const straightFreq = freq - nonStraightFreq;
