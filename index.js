@@ -9,16 +9,16 @@ $(() => {
 
   generateBtn.on('click', () => {
     const freq = frequencySlider.val();
-    const straightPercent = diagonalSlider.val();
+    const diagonalPercent = diagonalSlider.val();
 
-    const nonStraightFreq = freq * (straightPercent / 100);
-    const straightFreq = freq - nonStraightFreq;
+    const orthogonalFreq = freq * (diagonalPercent / 100);
+    const diagonalFreq = freq - orthogonalFreq;
 
-    console.warn(nonStraightFreq, straightFreq);
+    console.warn(orthogonalFreq, diagonalFreq);
 
     context.clearRect(0, 0, canvas.width, canvas.height);
 
-    for (let i = 0; i < straightFreq; i++) {
+    for (let i = 0; i < diagonalFreq; i++) {
       const isVertical = Math.random() > 0.5;
       context.beginPath();
       const startingPoint = [Math.random() * canvas.width, Math.random() * canvas.height]
@@ -31,7 +31,7 @@ $(() => {
       context.stroke();
     }
 
-    for (let i = 0; i < nonStraightFreq; i++) {
+    for (let i = 0; i < orthogonalFreq; i++) {
       context.beginPath();
       context.moveTo(Math.random() * canvas.width, Math.random() * canvas.height);
       context.lineTo(Math.random() * canvas.width, Math.random() * canvas.height);
